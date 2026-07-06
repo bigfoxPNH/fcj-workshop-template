@@ -6,53 +6,34 @@ chapter: false
 pre: " <b> 1.7. </b> "
 url: "/1-worklog/1.7-week7/"
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Weekly Topic
 
-### Week 7 Objectives:
+Money Manager final project kickoff - explore source code, set up environment, and trial deploy to AWS
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Weekly Goals
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+* Understand the source code structure and architecture of the Money Manager project.
+* Set up the local dev environment and start trial deploying components to AWS.
 
+### Work Schedule
 
-### Week 7 Achievements:
+| Date | Day | Task Description | Lab / Project |
+| :--- | :--- | :--- | :--- |
+| 01/06/2026 | Mon | Read Money Manager project documentation, analyze folder structure and main modules (Spring Boot backend, React Frontend, React Native mobile). Set up dev environment: JDK 21, Maven, Node.js, Docker. Run Spring Boot backend and React frontend locally; understand the build & deploy flow. | [Final Project](#) |
+| 02/06/2026 | Tue | Analyze the layered architecture (Controller -> Service -> Repository) of the Spring Boot backend. Learn about database schema, entity classes, and Spring Data JPA/Hibernate configurations. Understand how the backend connects to MySQL and configures connection pooling. | [Final Project](#) |
+| 03/06/2026 | Wed | Research core features: login (JWT + Google OAuth2), income/expense management, budget, savings jars. Learn how the backend communicates with the database and API endpoints. Start writing technical notes and architecture documentation. | [Final Project](#) |
+| 04/06/2026 | Thu | Trial deploy Spring Boot backend to AWS EC2. Configure RDS MySQL and connect the application. Test basic APIs and handle initial errors. | [Final Project](#) |
+| 05/06/2026 | Fri | Integrate S3 for file storage (invoice images, reports). Learn how to set up CloudFront for static asset delivery. Test the system and review performance. | [Final Project](#) |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Expected Results
 
-* Successfully created and configured an AWS Free Tier account.
+* Clearly understand the Spring Boot architecture and core business flows of Money Manager.
+* Have a working local environment and successfully trial deploy to EC2.
+* Build a technical foundation for the following development weeks.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+### Week 7 References
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* [Final Project - Money Manager (Spring Boot + React JS + React Native Expo)](#)
+* AWS services: EC2, RDS MySQL, S3, CloudFront
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...

@@ -6,55 +6,36 @@ chapter: false
 pre: " <b> 1.7. </b> "
 url: "/vi/1-worklog/1.7-week7/"
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Chủ đề tuần
 
-### Mục tiêu tuần 7:
+Khởi động dự án cuối khóa Money Manager - tìm hiểu mã nguồn, thiết lập môi trường và triển khai thử nghiệm lên AWS
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+* Hiểu cấu trúc mã nguồn và kiến trúc của dự án Money Manager.
+* Thiết lập môi trường phát triển cục bộ và bắt đầu triển khai thử nghiệm các thành phần lên AWS.
 
+### Lịch làm việc
 
-### Kết quả đạt được tuần 7:
+| Ngày | Thứ | Mô tả công việc | Lab / Dự án |
+| :--- | :--- | :--- | :--- |
+| 01/06/2026 | Thứ 2 | Đọc tài liệu dự án Money Manager, phân tích cấu trúc thư mục và các module chính (Spring Boot backend, React Frontend, React Native mobile). Thiết lập môi trường phát triển: JDK 21, Maven, Node.js, Docker. Chạy thử Spring Boot backend và React frontend cục bộ; tìm hiểu luồng build & deploy. | [Dự án cuối khóa](#) |
+| 02/06/2026 | Thứ 3 | Phân tích kiến trúc phân lớp (Controller -> Service -> Repository) của Spring Boot backend. Tìm hiểu về database schema, các lớp thực thể (entity), và cấu hình Spring Data JPA/Hibernate. Tìm hiểu cách backend kết nối với MySQL và cấu hình connection pooling. | [Dự án cuối khóa](#) |
+| 03/06/2026 | Thứ 4 | Nghiên cứu các tính năng cốt lõi: đăng nhập (JWT + Google OAuth2), quản lý thu nhập/chi tiêu, ngân sách, hũ tiết kiệm. Tìm hiểu cách backend tương tác với cơ sở dữ liệu và các API endpoint. Bắt đầu viết ghi chú kỹ thuật và tài liệu kiến trúc. | [Dự án cuối khóa](#) |
+| 04/06/2026 | Thứ 5 | Triển khai thử nghiệm Spring Boot backend lên AWS EC2. Cấu hình RDS MySQL và kết nối ứng dụng. Kiểm thử các API cơ bản và xử lý các lỗi ban đầu. | [Dự án cuối khóa](#) |
+| 05/06/2026 | Thứ 6 | Tích hợp S3 để lưu trữ file (ảnh hóa đơn, báo cáo). Tìm hiểu cách thiết lập CloudFront để phân phối tài sản tĩnh (static assets). Kiểm thử hệ thống và đánh giá hiệu năng. | [Dự án cuối khóa](#) |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả mong đợi
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Hiểu rõ kiến trúc Spring Boot và các luồng nghiệp vụ cốt lõi của Money Manager.
+* Thiết lập thành công môi trường chạy cục bộ và triển khai thử nghiệm lên EC2.
+* Xây dựng nền tảng kỹ thuật vững chắc cho các tuần phát triển tiếp theo.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+### Tài liệu tham khảo Tuần 7
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* [Dự án cuối khóa - Money Manager (Spring Boot + React JS + React Native Expo)](#)
+* Các dịch vụ AWS: EC2, RDS MySQL, S3, CloudFront
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
 
 
