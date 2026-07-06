@@ -6,55 +6,40 @@ chapter: false
 pre: " <b> 1.4. </b> "
 url: "/vi/1-worklog/1.4-week4/"
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Chủ đề tuần
 
-### Mục tiêu tuần 4:
+Auto Scaling + Route 53 + DynamoDB + CloudFront + Kiến trúc độ khả dụng cao (HA)
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+* Tìm hiểu về EC2 Auto Scaling, Application Load Balancer, Route 53 DNS, DynamoDB, CloudFront, và kiến trúc độ khả dụng cao (HA).
 
+### Lịch làm việc
 
-### Kết quả đạt được tuần 4:
+| Ngày | Thứ | Mô tả công việc | Lab / Dự án |
+| :--- | :--- | :--- | :--- |
+| 11/05/2026 | Thứ 2 | Tạo launch template và Auto Scaling Group. Cấu hình chính sách target tracking scaling policy. Thiết lập Application Load Balancer với listener rules. Kiểm tra các hoạt động scale-out, scale-in và health check trong Lab 000006. | [Lab 000006 - Scaling applications with EC2 Auto Scaling](https://000006.awsstudygroup.com/vi/) |
+| 12/05/2026 | Thứ 3 | Tìm hiểu về Route 53 hosted zones và các loại bản ghi phổ biến như A, CNAME, Alias. Cấu hình các chính sách routing cơ bản. Thiết lập mô hình hybrid DNS tích hợp với VPC. | [Lab 000010 - Hybrid DNS management with Amazon Route 53](https://000010.awsstudygroup.com/vi/) |
+| 13/05/2026 | Thứ 4 | Tạo các bảng DynamoDB với thiết kế partition key và sort key. Thực hiện các thao tác CRUD qua console và CLI. Cấu hình Global Secondary Index và so sánh dung lượng on-demand vs provisioned. | [Lab 000060 - Basic NoSQL with Amazon DynamoDB](https://000060.awsstudygroup.com/vi/) |
+| 14/05/2026 | Thứ 5 | Tìm hiểu CloudFront bao gồm distribution, origin và các cache behavior. Tích hợp CloudFront với website tĩnh trên S3. Cấu hình HTTPS với ACM và thực hiện cache invalidation. | [Lab 000094 - Content distribution with Amazon CloudFront](https://000094.awsstudygroup.com/vi/) |
+| 15/05/2026 | Thứ 6 | Thiết kế kiến trúc Multi-AZ sử dụng ALB, EC2 và RDS. Cấu hình target group và listener rule. Triển khai RDS Multi-AZ và kiểm tra health check cùng với cơ chế failover. | [Lab 000101 - Building a High Availability web application](https://000101.awsstudygroup.com/vi/) |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả mong đợi
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Hiểu cách thức hoạt động đồng bộ của EC2 Auto Scaling, ALB và các chính sách scaling trong một kiến trúc linh hoạt (elastic).
+* Cấu hình các bản ghi Route 53 DNS và các chiến lược định tuyến cơ bản, bao gồm cả hybrid DNS.
+* Thực hành thiết kế bảng DynamoDB, các thao tác CRUD, secondary index và mô hình dung lượng.
+* Sử dụng CloudFront để phân phối nội dung từ S3 một cách an toàn qua HTTPS với quản lý bộ nhớ đệm (cache).
+* Xây dựng và xác minh kiến trúc Multi-AZ với độ khả dụng cao sử dụng ALB, EC2 và RDS.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+### Tài liệu tham khảo Tuần 4
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* [Lab 000006 - Scaling applications with EC2 Auto Scaling](https://000006.awsstudygroup.com/vi/)
+* [Lab 000010 - Hybrid DNS management with Amazon Route 53](https://000010.awsstudygroup.com/vi/)
+* [Lab 000060 - Basic NoSQL with Amazon DynamoDB](https://000060.awsstudygroup.com/vi/)
+* [Lab 000094 - Content distribution with Amazon CloudFront](https://000094.awsstudygroup.com/vi/)
+* [Lab 000101 - Building a High Availability web application](https://000101.awsstudygroup.com/vi/)
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
 
 
