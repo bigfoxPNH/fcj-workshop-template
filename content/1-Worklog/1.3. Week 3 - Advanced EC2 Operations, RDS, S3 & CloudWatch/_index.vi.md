@@ -6,55 +6,40 @@ chapter: false
 pre: " <b> 1.3. </b> "
 url: "/vi/1-worklog/1.3-week3/"
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Chủ đề tuần
 
-### Mục tiêu tuần 3:
+Thao tác EC2 nâng cao + RDS + Hosting tĩnh trên S3 + Giám sát CloudWatch
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+* Hoàn thành các thao tác EC2 nâng cao: thay đổi kích thước, snapshot, custom AMI, triển khai ứng dụng.
+* Tìm hiểu về Amazon RDS, hosting tĩnh trên Amazon S3, và giám sát CloudWatch.
 
+### Lịch làm việc
 
-### Kết quả đạt được tuần 3:
+| Ngày | Thứ | Mô tả công việc | Lab / Dự án |
+| :--- | :--- | :--- | :--- |
+| 04/05/2026 | Thứ 2 | Thay đổi loại instance EC2. <br> Tạo và quản lý EBS snapshot. <br> Tạo custom AMI và khởi chạy các instance từ đó. <br> Khôi phục quyền truy cập vào các instance Linux và Windows, sau đó hoàn thành phần nâng cao của Lab 000004. | [Lab 000004 - Introduction to Amazon EC2](https://000004.awsstudygroup.com/vi/) |
+| 05/05/2026 | Thứ 3 | Cài đặt LAMP server và Node.js trên Amazon Linux 2023. <br> Triển khai ứng dụng Node.js trên EC2 cho cả Linux và Windows. <br> Xem xét AWS CLI cơ bản cho EC2, S3 và IAM; tạo cảnh báo AWS Budgets. <br> Hoàn thành các bài lab liên quan đến triển khai và chấm dứt (terminate) các instance EC2 vào cuối ngày. | [Lab 000004 - Introduction to Amazon EC2](https://000004.awsstudygroup.com/vi/) |
+| 06/05/2026 | Thứ 4 | Tạo VPC và security group cho Amazon RDS. <br> Khởi chạy một instance quản trị RDS MySQL và triển khai ứng dụng kết nối tới đó. <br> Thực hành sao lưu và khôi phục với RDS snapshot. <br> Hoàn thành Lab 000005. | [Lab 000005 - Database fundamentals with Amazon RDS](https://000005.awsstudygroup.com/vi/) |
+| 07/05/2026 | Thứ 5 | Tạo một S3 bucket và cấu hình truy cập công khai để hosting website tĩnh. <br> Tải lên các tệp HTML/CSS và cấu hình bucket policy với tính năng versioning. <br> Kiểm tra các pre-signed URL để kiểm soát truy cập. <br> Hoàn thành Lab 000057 và dọn dẹp tài nguyên vào cuối tuần. | [Lab 000057 - Static website hosting with Amazon S3](https://000057.awsstudygroup.com/vi/) |
+| 08/05/2026 | Thứ 6 | Tìm hiểu các chỉ số (metrics) và dashboard của CloudWatch. <br> Thiết lập cảnh báo CPU > 80% với thông báo email qua SNS. <br> Cấu hình log group, Log Insights và CloudWatch Agent trên EC2. <br> Hoàn thành Lab 000036. | [Lab 000036 - Monitoring with Amazon CloudWatch](https://000036.awsstudygroup.com/vi/) |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả mong đợi
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Làm chủ các thao tác EC2 nâng cao: thay đổi kích thước, snapshot, custom AMI, và khôi phục quyền truy cập.
+* Triển khai khối lượng công việc ứng dụng trên EC2 và sử dụng AWS CLI cho các nhiệm vụ vận hành cơ bản.
+* Khởi chạy và vận hành một instance quản trị Amazon RDS MySQL với thực hành sao lưu và khôi phục.
+* Host một website tĩnh trên Amazon S3 với kiểm soát truy cập và versioning phù hợp.
+* Cấu hình giám sát Amazon CloudWatch với cảnh báo, log và CloudWatch Agent.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+### Tài liệu tham khảo Tuần 3
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* [Lab 000004 - Basic compute knowledge with Amazon EC2](https://000004.awsstudygroup.com/vi/)
+* [Lab 000005 - Database fundamentals with Amazon RDS](https://000005.awsstudygroup.com/vi/)
+* [Lab 000057 - Static website hosting with Amazon S3](https://000057.awsstudygroup.com/vi/)
+* [Lab 000036 - Monitoring with Amazon CloudWatch](https://000036.awsstudygroup.com/vi/)
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
 
 
