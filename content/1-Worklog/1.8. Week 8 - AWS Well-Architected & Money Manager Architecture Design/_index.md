@@ -6,53 +6,34 @@ chapter: false
 pre: " <b> 1.8. </b> "
 url: "/1-worklog/1.8-week8/"
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Weekly Topic
 
-### Week 8 Objectives:
+Learn AWS Well-Architected Framework, AWS SAM, and apply them to Money Manager architecture design
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Weekly Goals
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+* Understand the 5 pillars of the AWS Well-Architected Framework.
+* Design the AWS architecture for the Money Manager project based on best practices.
 
+### Work Schedule
 
-### Week 8 Achievements:
+| Date | Day | Task Description | Lab / Project |
+| :--- | :--- | :--- | :--- |
+| 08/06/2026 | Mon | Learn about the AWS Well-Architected Framework and its 5 main pillars. Practice AWS SAM - trial deploy a simple serverless application. Start drafting the AWS architecture for Money Manager (VPC, EC2, RDS, ElastiCache). | [Well-Architected Labs](https://wellarchitectedlabs.com/) |
+| 09/06/2026 | Tue | Dive deeper into Well-Architected principles and real-world trade-offs. Continue AWS SAM practice with serverless deployment flow. Design VPC layout: Public Subnet (ALB, NAT Gateway), Private Subnet (EC2, RDS, ElastiCache). | [Well-Architected Labs](https://wellarchitectedlabs.com/) |
+| 10/06/2026 | Wed | Review design decisions through the lens of the 5 pillars. Learn more about AWS SAM and serverless deployment patterns. Design async flow: SQS -> EC2 Worker -> Lambda -> S3 for report export and invoice rendering. | [Well-Architected Labs](https://wellarchitectedlabs.com/) |
+| 11/06/2026 | Thu | Review Reliability, Security and Cost Optimization in the Money Manager architecture. Practice packaging and deploying serverless with AWS SAM. Design AI chat flow: DynamoDB stores conversation history for Nova Money. | [Well-Architected Labs](https://wellarchitectedlabs.com/) |
+| 12/06/2026 | Fri | Summarize the 5 pillars and their impact on the Money Manager architecture. Complete basic AWS SAM practice. Finalize the proposed architecture: multi-AZ, ALB + EC2 ASG, RDS MySQL, ElastiCache HA, SQS -> Lambda. | [Well-Architected Labs](https://wellarchitectedlabs.com/) |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Expected Results
 
-* Successfully created and configured an AWS Free Tier account.
+* Understand the 5 pillars of the AWS Well-Architected Framework and how to apply them.
+* Gain hands-on experience with AWS SAM.
+* Finalize the AWS architecture for Money Manager: multi-AZ VPC, ALB, EC2 ASG, RDS MySQL, ElastiCache, DynamoDB, SQS, Lambda, S3, SNS, CloudWatch.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+### Week 8 References
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* [Well-Architected Labs](https://wellarchitectedlabs.com/)
+* 5 pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...

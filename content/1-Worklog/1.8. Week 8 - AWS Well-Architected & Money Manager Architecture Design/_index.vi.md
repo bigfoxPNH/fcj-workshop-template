@@ -6,55 +6,36 @@ chapter: false
 pre: " <b> 1.8. </b> "
 url: "/vi/1-worklog/1.8-week8/"
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Chủ đề tuần
 
-### Mục tiêu tuần 8:
+Tìm hiểu AWS Well-Architected Framework, AWS SAM, và áp dụng vào thiết kế kiến trúc Money Manager
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+* Hiểu 5 trụ cột của AWS Well-Architected Framework.
+* Thiết kế kiến trúc AWS cho dự án Money Manager dựa trên các best practices.
 
+### Lịch làm việc
 
-### Kết quả đạt được tuần 8:
+| Ngày | Thứ | Mô tả công việc | Lab / Dự án |
+| :--- | :--- | :--- | :--- |
+| 08/06/2026 | Thứ 2 | Tìm hiểu về AWS Well-Architected Framework và 5 trụ cột chính. Thực hành AWS SAM - triển khai thử nghiệm một ứng dụng serverless đơn giản. Bắt đầu phác thảo kiến trúc AWS cho Money Manager (VPC, EC2, RDS, ElastiCache). | [Well-Architected Labs](https://wellarchitectedlabs.com/) |
+| 09/06/2026 | Thứ 3 | Đi sâu vào các nguyên tắc Well-Architected và các đánh đổi (trade-offs) trong thực tế. Tiếp tục thực hành AWS SAM với luồng triển khai serverless. Thiết kế bố cục VPC: Public Subnet (ALB, NAT Gateway), Private Subnet (EC2, RDS, ElastiCache). | [Well-Architected Labs](https://wellarchitectedlabs.com/) |
+| 10/06/2026 | Thứ 4 | Đánh giá các quyết định thiết kế dưới góc nhìn của 5 trụ cột. Tìm hiểu thêm về AWS SAM và các pattern triển khai serverless. Thiết kế luồng xử lý bất đồng bộ (async flow): SQS -> EC2 Worker -> Lambda -> S3 để xuất báo cáo và render hóa đơn. | [Well-Architected Labs](https://wellarchitectedlabs.com/) |
+| 11/06/2026 | Thứ 5 | Đánh giá tính Độ tin cậy (Reliability), Bảo mật (Security) và Tối ưu hóa chi phí (Cost Optimization) trong kiến trúc Money Manager. Thực hành đóng gói và triển khai serverless với AWS SAM. Thiết kế luồng chat AI: sử dụng DynamoDB để lưu lịch sử hội thoại cho Nova Money. | [Well-Architected Labs](https://wellarchitectedlabs.com/) |
+| 12/06/2026 | Thứ 6 | Tổng kết 5 trụ cột và tác động của chúng đối với kiến trúc Money Manager. Hoàn thành bài thực hành AWS SAM cơ bản. Hoàn thiện kiến trúc đề xuất: multi-AZ, ALB + EC2 ASG, RDS MySQL, ElastiCache HA, SQS -> Lambda. | [Well-Architected Labs](https://wellarchitectedlabs.com/) |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả mong đợi
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Hiểu rõ 5 trụ cột của AWS Well-Architected Framework và cách áp dụng chúng.
+* Tích lũy kinh nghiệm thực hành thực tế với AWS SAM.
+* Hoàn thiện kiến trúc AWS cho Money Manager: multi-AZ VPC, ALB, EC2 ASG, RDS MySQL, ElastiCache, DynamoDB, SQS, Lambda, S3, SNS, CloudWatch.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+### Tài liệu tham khảo Tuần 8
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* [Well-Architected Labs](https://wellarchitectedlabs.com/)
+* 5 trụ cột: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
 
 
