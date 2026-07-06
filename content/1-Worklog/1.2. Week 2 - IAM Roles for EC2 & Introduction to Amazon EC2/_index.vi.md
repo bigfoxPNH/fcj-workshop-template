@@ -6,55 +6,41 @@ chapter: false
 pre: " <b> 1.2. </b> "
 url: "/vi/1-worklog/1.2-week2/"
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+> Lưu ý: Ngày 30/04 (Ngày Giải phóng miền Nam) và 01/05 (Ngày Quốc tế Lao động) là các ngày nghỉ lễ — tuần này chỉ có 3 ngày làm việc.
 
-### Mục tiêu tuần 2:
+### Chủ đề tuần
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+Đánh giá IAM + Vai trò IAM cho EC2 + các thao tác cơ bản với Amazon EC2
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Mục tiêu tuần
 
+* Xem lại và củng cố kiến thức về IAM & VPC từ Tuần 1.
+* Tìm hiểu sâu về IAM Roles cho EC2 và các thao tác cơ bản với Amazon EC2.
 
-### Kết quả đạt được tuần 2:
+### Lịch làm việc
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+| Ngày | Thứ | Mô tả công việc | Lab / Dự án |
+| :--- | :--- | :--- | :--- |
+| 27/04/2026 | Thứ 2 | Xem lại IAM bao gồm user, group, role, và policy. Xem lại các thành phần VPC như subnet, route table, Internet Gateway, và security group. Thiết lập Cảnh báo hóa đơn (Billing Alarm) $5 và xem xét chiến lược sử dụng credit AWS. | [Lab 000001](https://000001.awsstudygroup.com/vi/) / [Lab 000002](https://000002.awsstudygroup.com/vi/) / [Lab 000003](https://000003.awsstudygroup.com/vi/) |
+| 28/04/2026 | Thứ 3 | Tìm hiểu về IAM Roles cho EC2 và mô hình Instance Profile. Truy cập S3 và DynamoDB từ EC2 mà không cần access key tĩnh. Xem xét quản trị chi phí IAM, bao gồm các hạn chế về region và loại instance. | [Lab 000048 - IAM Roles for EC2 (Instance Profile)](https://000048.awsstudygroup.com/vi/) |
+| 29/04/2026 | Thứ 4 | Tạo VPC và security group cho cả Linux và Windows EC2. Khởi chạy Amazon Linux 2023 và Windows Server 2025. Kết nối qua SSH và RDP, đồng thời xem xét các khái niệm Key Pair, AMI, và loại instance. | [Lab 000004 - Introduction to Amazon EC2](https://000004.awsstudygroup.com/vi/) |
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+### Kết quả mong đợi
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Củng cố hiểu biết về IAM và VPC thông qua việc thực hành xem lại.
+* Thiết lập các biện pháp kiểm soát chi phí cơ bản như Billing Alarm và giám sát credit.
+* Hiểu cách IAM Roles cho EC2 thay thế các thông tin xác thực tĩnh (static credentials) khi truy cập các dịch vụ AWS.
+* Khởi chạy và truy cập cả Linux EC2 và Windows EC2 với cấu hình mạng và bảo mật phù hợp.
+* Nắm vững mối quan hệ giữa AMI, loại instance, key pair và security group trong quy trình triển khai EC2.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+### Tài liệu tham khảo Tuần 2
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* [Lab 000001 - Create your first AWS account](https://000001.awsstudygroup.com/vi/)
+* [Lab 000002 - Access management with AWS IAM](https://000002.awsstudygroup.com/vi/)
+* [Lab 000003 - Basic networking with Amazon VPC](https://000003.awsstudygroup.com/vi/)
+* [Lab 000048 - IAM Roles for EC2 (Instance Profile)](https://000048.awsstudygroup.com/vi/)
+* [Lab 000004 - Basic compute knowledge with Amazon EC2](https://000004.awsstudygroup.com/vi/)
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
 
 
