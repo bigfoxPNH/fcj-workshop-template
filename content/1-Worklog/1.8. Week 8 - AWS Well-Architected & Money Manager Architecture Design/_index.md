@@ -1,5 +1,5 @@
 ---
-title: "Week 8 - AWS Well-Architected & Money Manager Architecture Design"
+title: "Week 8 - AWS Well-Architected, AWS SAM & Architecture Design"
 date: 2024-01-01
 weight: 1
 chapter: false

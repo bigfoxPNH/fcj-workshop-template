@@ -5,104 +5,73 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# PROPOSAL
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+## GymPro – Hệ thống quản lý phòng gym thông minh trên AWS
+### Giải pháp toàn diện cho hoạt động vận hành phòng gym với kiến trúc AWS Serverless & Cloud-Native
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+### 1. Tóm tắt điều hành
+GymPro là một hệ thống quản lý và vận hành phòng gym thông minh được xây dựng trên kiến trúc Cloud-Native và Serverless hiện đại trên Amazon Web Services (AWS). Từ góc độ kỹ thuật, ứng dụng phía máy khách được phát triển bằng Flutter (Đa nền tảng), trong khi cơ sở hạ tầng backend hoạt động hoàn toàn trên các dịch vụ đám mây thế hệ mới của AWS tích hợp với cơ sở dữ liệu thời gian thực Firebase Firestore. Tác giả và quản trị viên chính của hệ thống là phamquangtrung4504@gmail.com.
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+### 2. Mục tiêu
+Với GymPro, mục tiêu cốt lõi không chỉ đơn thuần là số hóa các quy trình quản lý mà còn hướng tới việc tối ưu hóa toàn bộ cơ sở hạ tầng:
+- Giảm thiểu tối đa chi phí vận hành phần cứng thông qua mô hình Serverless.
+- Tự động mở rộng quy mô theo lượng truy cập đồng thời của các thành viên.
+- Tối ưu hóa bảo mật dữ liệu với mạng riêng ảo và các quy tắc bảo mật nghiêm ngặt.
+- Nâng cao trải nghiệm người dùng thông qua trợ lý AI (Google Gemini API) được tích hợp trực tiếp vào ứng dụng, đóng vai trò như một huấn luyện viên cá nhân thông minh để cung cấp lời khuyên về dinh dưỡng và luyện tập.
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+### 3. Tuyên bố vấn đề
+- **Tình trạng hiện tại:** Các phòng gym truyền thống thường gặp khó khăn trong việc quản lý thành viên tập trung, bảo mật dữ liệu thẻ thành viên và tối ưu hóa chi phí bảo trì máy chủ trong những thời điểm lưu lượng truy cập biến động mạnh.
+- **Giải pháp:** GymPro tận dụng kiến trúc Serverless trên AWS để loại bỏ hoàn toàn việc bảo trì máy chủ vật lý. Danh tính người dùng được quản lý thông qua AWS Cognito, dữ liệu được lưu trữ trong Firebase Firestore và tất cả các tính toán backend (ví dụ: cấp quyền tải lên) được xử lý an toàn bởi AWS Lambda ẩn trong một VPC.
+- **Lợi ích:** Mang lại một hệ thống có tính sẵn sàng cao, được bảo mật nghiêm ngặt với chi phí vận hành ban đầu gần như bằng không, cung cấp trải nghiệm hiện đại cho các thành viên.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+### 4. Kiến trúc hệ thống
+Toàn bộ cơ sở hạ tầng backend được triển khai trên AWS trong mạng nội bộ Amazon VPC (subnet 10.0.0.0/16), được chia thành Public và Private Subnet trên 2 Availability Zones (AZs).
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+**Công nghệ sử dụng:**
+- **Client App:** Flutter (Ứng dụng di động đa nền tảng).
+- **Cơ sở dữ liệu:** Firebase Firestore (Cơ sở dữ liệu NoSQL).
+- **Trí tuệ nhân tạo:** Google Gemini API.
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+**Các dịch vụ AWS cốt lõi:**
+- **AWS Cognito (User Pool & Roles):** Quản lý định danh (Đăng ký/Đăng nhập/Đăng xuất), mã hóa bảo mật và gửi mã OTP qua hệ thống thoại/email.
+- **Amazon S3:** Kho lưu trữ dung lượng cao tập trung tất cả ảnh đại diện (Avatar) và ảnh check-in luyện tập.
+- **AWS Lambda:** Xử lý các tính toán backend Serverless, chứa các hàm nghiệp vụ độc lập (chẳng hạn như GymPro_Get_Upload_URL).
+- **Amazon VPC:** Cơ sở hạ tầng mạng cô lập giúp ẩn hoàn toàn các hàm Lambda tính toán nặng bên trong Private Subnet, cách ly nghiêm ngặt chúng khỏi Internet công cộng.
+- **Amazon CloudWatch:** Radar giám sát thu thập nhật ký vận hành và quét từ khóa 'ERROR' bằng Metric Filters.
+- **Amazon SNS:** Hệ thống cảnh báo tự động liên kết với CloudWatch để gửi cảnh báo khẩn cấp đến Gmail.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+![System Architecture](/images/2-Proposal/system_architecture.png)
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+**Các luồng dữ liệu chính:**
+- **Luồng xác thực & đồng bộ hóa dữ liệu:** Người dùng nhập thông tin đăng nhập trên ứng dụng di động Flutter. Yêu cầu được gửi đến AWS Cognito User Pool để lấy các mã thông báo bảo mật (ID, Access Token). Sau đó, ứng dụng sử dụng ID Cognito làm khóa để xác thực với Firestore Security Rules nhằm đọc/ghi dữ liệu lịch sử tập luyện của thành viên.
+- **Luồng tải ảnh an toàn qua VPC cô lập:** Ứng dụng yêu cầu quyền tải lên hình ảnh thông qua API Gateway. Yêu cầu được chuyển tiếp đến một hàm AWS Lambda ẩn trong Private Subnet. Hàm Lambda giao tiếp an toàn thông qua S3 Gateway Endpoint nội bộ để yêu cầu một S3 Presigned URL tạm thời từ Amazon S3. URL này được trả về để ứng dụng có thể tải trực tiếp các tệp ảnh nặng lên S3.
+- **Luồng Radar giám sát lỗi chủ động:** Lambda tự động đẩy nhật ký lên CloudWatch Log Groups. Metric Filter quét từ khóa "ERROR" và cộng thêm 1 điểm nếu phát hiện. Nếu CloudWatch Alarm ghi nhận >= 1 lỗi trong chu kỳ 5 phút, hệ thống sẽ kích hoạt Amazon SNS (Topic: GymPro-Urgent-Alerts) để gửi email cảnh báo khẩn cấp đến phamquangtrung4504@gmail.com.
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+### 5. Triển khai kỹ thuật
+Nhóm HTV chia sẻ các nhiệm vụ kỹ thuật để đáp ứng các tiêu chuẩn của dự án:
+- **Phát triển Frontend:** Trung và Vũ chịu trách nhiệm phát triển giao diện người dùng bằng Flutter, đảm bảo trải nghiệm mượt mà trên cả iOS và Android.
+- **Thiết kế Backend AWS:** Xây dựng cơ sở hạ tầng Serverless với AWS Lambda, cấu hình xác thực Cognito và thiết lập bảo mật mạng VPC.
+- **Tích hợp AI & Cơ sở dữ liệu:** Khởi tạo Firebase Firestore với các Security Rules nghiêm ngặt và tích hợp Google Gemini API để nhúng logic tư vấn dinh dưỡng cho AI Chatbot.
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+### 6. Lộ trình triển khai
+Lộ trình triển khai dự án tại HUTECH được chia thành các giai đoạn chính:
+- **Tuần 1-3:** Khởi tạo kiến trúc mạng Amazon VPC (Subnets, AZs) và thiết lập AWS Cognito. Thực hiện cấu hình Firebase Firestore ban đầu.
+- **Tuần 4-6:** Nhóm HTV lập trình giao diện Ứng dụng di động bằng Flutter và kết nối luồng xác thực đăng nhập.
+- **Tuần 7-9:** Lập trình các hàm AWS Lambda cốt lõi (ví dụ: GymPro_Get_Upload_URL), cấu hình S3 Gateway Endpoint và hoàn thiện luồng tải ảnh bảo mật qua Presigned URL.
+- **Tuần 10-12:** Tích hợp Google Gemini API cho tính năng AI Chatbot. Thiết lập Amazon CloudWatch và cấu hình cảnh báo Amazon SNS. Chạy thử nghiệm luồng lỗi và chuẩn bị cho buổi bảo vệ dự án cuối kỳ.
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+### 7. Ước tính chi phí
+Kiến trúc Serverless mang lại lợi thế vượt trội về chi phí cho giai đoạn phát triển:
+- **AWS Lambda & API Gateway:** Tính phí theo số lượng yêu cầu, dự kiến nằm hoàn toàn trong giới hạn Free Tier.
+- **AWS Cognito:** Miễn phí cho 50.000 MAU (Người dùng hoạt động hàng tháng) đầu tiên.
+- **Amazon S3:** Chi phí cực thấp (~0.025 USD/GB) để lưu trữ ảnh check-in.
+- **Amazon VPC & CloudWatch:** Các tính năng cơ bản và Metric Filters nằm trong giới hạn của gói miễn phí.
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+### 8. Đánh giá rủi ro
+- **Rủi ro lộ thông tin xác thực:** Rất thấp nhờ cơ chế cấp S3 Presigned URL thời hạn ngắn để tải ảnh lên thay vì để lộ thông tin xác thực tài khoản AWS gốc cho Phía máy khách.
+- **Truy cập trái phép từ Internet công cộng:** Được ngăn chặn hoàn toàn do các hàm logic nghiệp vụ nặng được ẩn hoàn toàn bên trong Private Subnet của VPC.
+- **Khôi phục sự cố hệ thống:** Với luồng Radar giám sát lỗi sử dụng CloudWatch và SNS, mọi lỗi phát sinh sẽ tự động được cảnh báo đến email của quản trị viên trong vòng 5 phút, đảm bảo phản hồi và giải quyết nhanh chóng.
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
-
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
-
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
-
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
-
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
-
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
-
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
-
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+### 9. Kết quả kỳ vọng
+Xây dựng thành công một hệ thống quản lý phòng gym hiện đại, an toàn và tối ưu hóa tài nguyên. GymPro sẽ đóng vai trò là một minh chứng thực tế về việc áp dụng kiến trúc Serverless & Cloud-Native để giải quyết các vấn đề kinh doanh, tạo ra một hệ thống không cần bảo trì máy chủ vật lý, khả năng tự động mở rộng vô hạn và bảo mật dữ liệu tối đa cho các thành viên.

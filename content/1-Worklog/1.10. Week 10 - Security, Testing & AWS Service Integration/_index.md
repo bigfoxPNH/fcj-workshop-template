@@ -1,5 +1,5 @@
 ---
-title: "Week 10 - Security, Testing & AWS Service Integration"
+title: "Week 10 - Final Project Security, CI/CD & Testing"
 date: 2024-01-01
 weight: 2
 chapter: false

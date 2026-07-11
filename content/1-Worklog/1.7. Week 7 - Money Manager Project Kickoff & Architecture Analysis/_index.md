@@ -1,5 +1,5 @@
 ---
-title: "Week 7 - Money Manager Project Kickoff & Architecture Analysis"
+title: "Week 7 - Final Project Kickoff & Analysis"
 date: 2024-01-01
 weight: 1
 chapter: false

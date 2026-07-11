@@ -5,111 +5,73 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+## GymPro – Smart Gym Management System on AWS
+### A comprehensive solution for gym operations with AWS Serverless & Cloud-Native architecture 
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+GymPro is a smart gym management and operation system built on a modern Cloud-Native and Serverless architecture on Amazon Web Services (AWS). From a technical standpoint, the client-side application is developed using Flutter (Cross-platform), while the backend infrastructure operates entirely on next-generation AWS cloud services integrated with the Firebase Firestore real-time database. The system's author and primary administrator is phamquangtrung4504@gmail.com.
 
-### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+### 2. Objectives
+With GymPro, the core objective goes beyond simply digitizing management processes; it aims for complete infrastructure optimization:
+- Reduce hardware operational costs to the maximum through a Serverless model.
+- Automatically scale according to the concurrent access volume of members.
+- Optimize data security with a virtual private network and strict security rules.
+- Enhance the user experience via an AI assistant (Google Gemini API) integrated directly into the App, acting as a smart personal trainer to provide nutrition and workout advice.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+### 3. Problem Statement
+- **Current Situation:** Traditional gyms often struggle with centralized member management, membership card data security, and optimizing server maintenance costs during times of highly fluctuating traffic.
+- **Solution:** GymPro leverages a Serverless architecture on AWS to completely eliminate physical server maintenance. User identity is managed via AWS Cognito, data is stored in Firebase Firestore, and all backend computations (e.g., granting upload permissions) are securely processed by AWS Lambda hidden within a VPC.
+- **Benefits:** Delivers a highly available, strictly secured system with near-zero initial operational costs, providing a modern experience for members.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+### 4. System Architecture
+The entire backend infrastructure is deployed on AWS within an internal Amazon VPC network (10.0.0.0/16 subnet), divided into Public and Private Subnets across 2 Availability Zones (AZs).
 
-### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+**Technologies used:**
+- **Client App:** Flutter (Cross-platform Mobile App).
+- **Database:** Firebase Firestore (NoSQL database).
+- **AI:** Google Gemini API.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+**Core AWS Services:**
+- **AWS Cognito (User Pool & Roles):** Manages identity (Sign Up/Login/Logout), security encryption, and sends OTP codes via the voice/email system.
+- **Amazon S3:** A high-capacity storage repository centralizing all Avatars and workout check-in photos.
+- **AWS Lambda:** Handles Serverless backend computations, containing isolated business functions (such as GymPro_Get_Upload_URL).
+- **Amazon VPC:** An isolated network infrastructure that completely hides heavy computing Lambda functions inside the Private Subnet, strictly isolating them from the public Internet.
+- **Amazon CloudWatch:** The monitoring radar that collects operational logs and scans for the keyword 'ERROR' using Metric Filters.
+- **Amazon SNS:** An automated alarm system linked with CloudWatch to send urgent alerts to Gmail.
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+![System Architecture](/images/2-Proposal/system_architecture.png)
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+**Core Data Flows:**
+- **Authentication & Data Synchronization Flow:** Users enter their login information on the Flutter mobile app. The request is sent to the AWS Cognito User Pool to retrieve security tokens (ID, Access Token). The App then uses the Cognito ID as a key to verify against Firestore Security Rules to read/write the member's workout history data.
+- **Secure Image Upload Flow via Isolated VPC:** The App requests permission to upload an image via API Gateway. The request is forwarded to an AWS Lambda function hidden within the Private Subnet. The Lambda function securely communicates through an internal S3 Gateway Endpoint to request a temporary S3 Presigned URL from Amazon S3. This URL is returned so the App can upload heavy image files directly to S3.
+- **Proactive Error Monitoring Radar Flow:** Lambda automatically pushes logs to CloudWatch Log Groups. The Metric Filter scans for the word "ERROR" and adds 1 point if detected. If the CloudWatch Alarm records >= 1 error within a 5-minute cycle, the system triggers Amazon SNS (Topic: GymPro-Urgent-Alerts) to push an alert email to phamquangtrung4504@gmail.com.
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+### 5. Technical Implementation
+The HTV group divides the technical tasks to meet the project standards:
+- **Frontend Development:** Trung and Vũ are responsible for developing the user interface using Flutter, ensuring a smooth experience on both iOS and Android.
+- **AWS Backend Design:** Building the Serverless infrastructure with AWS Lambda, configuring Cognito authentication, and setting up the VPC network security.
+- **AI & Database Integration:** Initializing Firebase Firestore with strict Security Rules and integrating the Google Gemini API to embed nutrition advisory logic for the AI Chatbot.
 
-### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+### 6. Implementation Roadmap
+The project implementation roadmap at HUTECH is divided into main phases:
+- **Weeks 1-3:** Initialize the Amazon VPC network architecture (Subnets, AZs) and set up AWS Cognito. Perform initial Firebase Firestore configuration.
+- **Weeks 4-6:** The HTV group codes the Mobile App interface using Flutter and connects the login authentication flow.
+- **Weeks 7-9:** Program the core AWS Lambda functions (e.g., GymPro_Get_Upload_URL), configure the S3 Gateway Endpoint, and finalize the secure image upload flow via Presigned URL.
+- **Weeks 10-12:** Integrate the Google Gemini API for the AI Chatbot feature. Set up Amazon CloudWatch and configure Amazon SNS alarms. Run error flow testing and prepare for the final project defense.
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+### 7. Cost Estimation
+The Serverless architecture offers an outstanding cost advantage for the development phase:
+- **AWS Lambda & API Gateway:** Charged per request, expected to fall entirely within the Free Tier limits.
+- **AWS Cognito:** Free for the first 50,000 MAU (Monthly Active Users).
+- **Amazon S3:** Extremely low cost (~$0.025/GB) for storing check-in photos.
+- **Amazon VPC & CloudWatch:** Basic features and Metric Filters fall within free tier limits.
 
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+### 8. Risk Assessment
+- **Risk of credential exposure:** Very low due to the mechanism of issuing short-lived S3 Presigned URLs for image uploads instead of exposing root AWS account credentials to the Client.
+- **Unauthorized access from the Public Internet:** Completely prevented since heavy business logic functions are entirely hidden within the Private Subnet of the VPC.
+- **System Incident Recovery:** With the Error Monitoring Radar flow using CloudWatch and SNS, any arising errors are automatically alerted to the administrator's email within 5 minutes, ensuring rapid response and resolution.
 
-### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
-
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
-
-Total: $0.7/month, $8.40/12 months
-
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
-
-### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
-
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
-
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
-
-### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+### 9. Expected Results
+Successfully build a modern, secure, and resource-optimized gym management system. GymPro will serve as a practical demonstration of applying Serverless & Cloud-Native architecture to solve business problems, yielding a system that requires zero physical server maintenance, infinite auto-scaling capabilities, and maximum data security for members.

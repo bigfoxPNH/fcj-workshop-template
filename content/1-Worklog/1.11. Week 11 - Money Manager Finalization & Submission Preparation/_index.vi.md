@@ -1,5 +1,5 @@
 ---
-title: "Tuần 11 - Hoàn thiện Money Manager & Chuẩn bị Báo cáo"
+title: "Tuần 11 - Hoàn thiện Dự án cuối khóa & Chuẩn bị Báo cáo"
 date: 2024-01-01
 weight: 2
 chapter: false

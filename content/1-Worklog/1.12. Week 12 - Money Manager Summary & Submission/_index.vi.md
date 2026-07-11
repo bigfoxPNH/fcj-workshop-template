@@ -1,5 +1,5 @@
 ---
-title: "Tuần 12 - Tổng kết Money Manager & Nộp báo cáo"
+title: "Tuần 12 - Tổng kết Dự án cuối khóa & Nộp báo cáo"
 date: 2024-01-01
 weight: 2
 chapter: false

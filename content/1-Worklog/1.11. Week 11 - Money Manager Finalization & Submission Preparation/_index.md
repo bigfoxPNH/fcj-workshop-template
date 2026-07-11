@@ -1,5 +1,5 @@
 ---
-title: "Week 11 - Money Manager Finalization & Submission Preparation"
+title: "Week 11 - Final Project Completion & Submission Preparation"
 date: 2024-01-01
 weight: 2
 chapter: false

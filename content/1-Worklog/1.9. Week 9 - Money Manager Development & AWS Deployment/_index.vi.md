@@ -1,5 +1,5 @@
 ---
-title: "Tuần 9 - Phát triển Money Manager & Triển khai AWS"
+title: "Tuần 9 - Phát triển Dự án cuối khóa & Triển khai AWS"
 date: 2024-01-01
 weight: 1
 chapter: false

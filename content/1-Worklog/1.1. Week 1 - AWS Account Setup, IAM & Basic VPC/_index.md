@@ -1,5 +1,5 @@
 ---
-title: "Week 1 - AWS Account Setup, IAM & Basic VPC"
+title: "Week 1 - AWS Account Setup, IAM & VPC Fundamentals"
 date: 2024-01-01
 weight: 1
 chapter: false

@@ -1,5 +1,5 @@
 ---
-title: "Tuần 10 - Bảo mật, Kiểm thử & Tích hợp Dịch vụ AWS"
+title: "Tuần 10 - Bảo mật Dự án cuối khóa, CI/CD & Kiểm thử"
 date: 2024-01-01
 weight: 2
 chapter: false

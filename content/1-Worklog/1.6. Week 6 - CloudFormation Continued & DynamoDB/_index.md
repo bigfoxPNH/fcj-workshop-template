@@ -1,5 +1,5 @@
 ---
-title: "Week 6 - CloudFormation Continued & DynamoDB"
+title: "Week 6 - CloudFormation Continuation & DynamoDB"
 date: 2024-01-01
 weight: 1
 chapter: false

@@ -1,5 +1,5 @@
 ---
-title: "Week 9 - Money Manager Development & AWS Deployment"
+title: "Week 9 - Final Project Development & AWS Deployment"
 date: 2024-01-01
 weight: 1
 chapter: false

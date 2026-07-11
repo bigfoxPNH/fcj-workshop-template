@@ -1,5 +1,5 @@
 ---
-title: "Week 3 - Advanced EC2 Operations, RDS, S3 & CloudWatch"
+title: "Week 3 - EC2 Advanced Operations, RDS, S3 & CloudWatch"
 date: 2024-01-01
 weight: 1
 chapter: false

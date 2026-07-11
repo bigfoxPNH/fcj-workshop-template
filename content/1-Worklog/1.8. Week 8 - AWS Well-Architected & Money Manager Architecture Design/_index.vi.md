@@ -1,5 +1,5 @@
 ---
-title: "Tuần 8 - AWS Well-Architected & Thiết kế Kiến trúc Money Manager"
+title: "Tuần 8 - AWS Well-Architected, AWS SAM & Thiết kế Kiến trúc"
 date: 2024-01-01
 weight: 1
 chapter: false
