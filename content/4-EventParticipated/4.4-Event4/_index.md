@@ -65,8 +65,4 @@ This session addressed enterprise-grade infrastructure security challenges; guid
 ### Some event photos
 *Add your event photos here*
 
-<div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-  <img src="/images/4-EventParticipated/event4.png" alt="Event 4 Photo 1" style="width: 30%; min-width: 200px; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-  <img src="/images/4-EventParticipated/event4.1.png" alt="Event 4 Photo 2" style="width: 30%; min-width: 200px; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-  <img src="/images/4-EventParticipated/event4.2.png" alt="Event 4 Photo 3" style="width: 30%; min-width: 200px; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-</div>
+![Event 4 Photo 1](/images/4-EventParticipated/event4.png?width=30%&classes=shadow) ![Event 4 Photo 2](/images/4-EventParticipated/event4.1.png?width=30%&classes=shadow) ![Event 4 Photo 3](/images/4-EventParticipated/event4.2.png?width=30%&classes=shadow)

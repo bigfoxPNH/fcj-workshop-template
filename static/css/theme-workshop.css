@@ -226,3 +226,20 @@ div.notices.info p {
   border-top: 30px solid #fd9827;
   background: #fff2db;
 }
+
+/* Image styling overrides */
+#body-inner img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  margin: 10px;
+}
+
+#body-inner img.shadow {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#body-inner p:has(> img) {
+  text-align: center;
+}
+

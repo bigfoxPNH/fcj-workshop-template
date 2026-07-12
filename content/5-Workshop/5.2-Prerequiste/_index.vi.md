@@ -20,9 +20,7 @@ aws configure
 
 Nhập Access Key ID và Secret Access Key đã được tạo ở Bước 1. Thiết lập Default region name thành `us-east-1` (N. Virginia - vùng triển khai mặc định của dự án GymPro) và Default output format thành `json`. Cấu hình này sẽ tự động được lưu trong thư mục người dùng (`~/.aws/` trên Linux/macOS hoặc `%USERPROFILE%\.aws\` trên Windows).
 
-<div style="text-align: center; margin: 20px 0;">
-  <img src="/images/5-Workshop/5.2-Prerequisite/iam-credentials.png" alt="Thông tin xác thực bảo mật IAM" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
-</div>
+![Thông tin xác thực bảo mật IAM](/images/5-Workshop/5.2-Prerequisite/iam-credentials.png?classes=shadow)
 
 > [!NOTE]
 > Tab IAM Security credentials với phần Access keys được sử dụng để tạo các khóa kết nối CLI.

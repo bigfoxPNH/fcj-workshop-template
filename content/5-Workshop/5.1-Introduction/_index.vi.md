@@ -10,7 +10,7 @@ pre : " <b> 5.1. </b> "
 ### Triển khai cơ sở hạ tầng và thiết lập kết nối an toàn với Amazon S3
 
 <div style="text-align: center; margin: 20px 0;">
-  <img src="/images/5-Workshop/5.1-Introduction/architecture1.png" alt="Kiến trúc tổng thể" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+  ![Kiến trúc tổng thể](/images/5-Workshop/5.1-Introduction/architecture1.png?classes=shadow)
   <div style="font-weight: bold; margin-top: 8px; color: #555;">Hình 1. Kiến trúc tổng thể của cơ sở hạ tầng mạng và sự tích hợp dịch vụ AWS.</div>
 </div>
 

@@ -73,8 +73,4 @@ pre: " <b> 4.2. </b> "
 #### Một số hình ảnh khi tham gia sự kiện
 * Thêm các hình ảnh của các bạn tại đây
 
-<div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-  <img src="/images/4-EventParticipated/event2.png" alt="Hình ảnh Sự kiện 2" style="width: 30%; min-width: 200px; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-  <img src="/images/4-EventParticipated/event2.1.png" alt="Hình ảnh Sự kiện 2.1" style="width: 30%; min-width: 200px; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-  <img src="/images/4-EventParticipated/event2.2.png" alt="Hình ảnh Sự kiện 2.2" style="width: 30%; min-width: 200px; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-</div>
+![Hình ảnh Sự kiện 2](/images/4-EventParticipated/event2.png?width=30%&classes=shadow) ![Hình ảnh Sự kiện 2.1](/images/4-EventParticipated/event2.1.png?width=30%&classes=shadow) ![Hình ảnh Sự kiện 2.2](/images/4-EventParticipated/event2.2.png?width=30%&classes=shadow)

@@ -12,18 +12,14 @@ After completing the infrastructure configuration, the author conducted practica
 
 Performed the registration of a new member account on the GymPro mobile app interface.
 
-<div style="text-align: center; margin: 20px 0;">
-  <img src="/images/5-Workshop/5.4-Test Results & Experimentation/cognito-register.png" alt="Cognito Registration Flow" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
-</div>
+![Cognito Registration Flow](/images/5-Workshop/5.4-Test%20Results%20&%20Experimentation/cognito-register.png?classes=shadow)
 
 > [!NOTE]
 > Image of the account creation and Cognito authentication function
 
 The AWS Cognito system accurately recorded the new user and automatically sent an OTP activation code to the member's personal email. The user successfully entered the code, and the account status transitioned to Verified.
 
-<div style="text-align: center; margin: 20px 0;">
-  <img src="/images/5-Workshop/5.4-Test Results & Experimentation/cognito-users.png" alt="Cognito Users Management" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
-</div>
+![Cognito Users Management](/images/5-Workshop/5.4-Test%20Results%20&%20Experimentation/cognito-users.png?classes=shadow)
 
 > [!NOTE]
 > Management interface of the member account list and authentication status on the AWS Cognito User Pool
@@ -40,9 +36,7 @@ Upon receiving the link, the Flutter App automatically triggered an HTTP PUT req
 
 Accessing the S3 Console, the author confirmed that the image file was properly placed in the storage directory with the exact format and size, proving that the internal secure connection flow operated with 100% success.
 
-<div style="text-align: center; margin: 20px 0;">
-  <img src="/images/5-Workshop/5.4-Test Results & Experimentation/s3-upload.png" alt="S3 Image Upload Success" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
-</div>
+![S3 Image Upload Success](/images/5-Workshop/5.4-Test%20Results%20&%20Experimentation/s3-upload.png?classes=shadow)
 
 > [!NOTE]
 > Image of the image upload function to the S3 system

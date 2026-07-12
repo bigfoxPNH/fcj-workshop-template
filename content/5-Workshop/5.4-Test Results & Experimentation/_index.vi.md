@@ -12,18 +12,14 @@ Sau khi hoàn tất cấu hình cơ sở hạ tầng, tác giả đã tiến hà
 
 Thực hiện đăng ký tài khoản thành viên mới trên giao diện ứng dụng di động GymPro.
 
-<div style="text-align: center; margin: 20px 0;">
-  <img src="/images/5-Workshop/5.4-Test Results & Experimentation/cognito-register.png" alt="Luồng Đăng ký Cognito" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
-</div>
+![Luồng Đăng ký Cognito](/images/5-Workshop/5.4-Test%20Results%20&%20Experimentation/cognito-register.png?classes=shadow)
 
 > [!NOTE]
 > Hình ảnh chức năng tạo tài khoản và xác thực Cognito
 
 Hệ thống AWS Cognito ghi nhận chính xác người dùng mới và tự động gửi mã kích hoạt OTP về email cá nhân của thành viên. Người dùng nhập mã thành công và trạng thái tài khoản chuyển sang Verified.
 
-<div style="text-align: center; margin: 20px 0;">
-  <img src="/images/5-Workshop/5.4-Test Results & Experimentation/cognito-users.png" alt="Quản trị Người dùng Cognito" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
-</div>
+![Quản trị Người dùng Cognito](/images/5-Workshop/5.4-Test%20Results%20&%20Experimentation/cognito-users.png?classes=shadow)
 
 > [!NOTE]
 > Giao diện quản lý danh sách tài khoản thành viên và trạng thái xác thực trên AWS Cognito User Pool
@@ -40,9 +36,7 @@ Sau khi nhận được liên kết, Flutter App tự động kích hoạt một
 
 Truy cập S3 Console, tác giả xác nhận tệp ảnh đã được đặt đúng thư mục lưu trữ với định dạng và dung lượng chính xác, chứng minh luồng kết nối bảo mật nội bộ đã hoạt động thành công 100%.
 
-<div style="text-align: center; margin: 20px 0;">
-  <img src="/images/5-Workshop/5.4-Test Results & Experimentation/s3-upload.png" alt="Tải ảnh lên S3 Thành công" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
-</div>
+![Tải ảnh lên S3 Thành công](/images/5-Workshop/5.4-Test%20Results%20&%20Experimentation/s3-upload.png?classes=shadow)
 
 > [!NOTE]
 > Hình ảnh chức năng tải ảnh lên hệ thống S3

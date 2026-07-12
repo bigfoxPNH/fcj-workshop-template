@@ -20,9 +20,7 @@ aws configure
 
 Enter the Access Key ID and Secret Access Key generated in Step 1. Set the Default region name to `us-east-1` (N. Virginia - the default deployment region for the GymPro project) and the Default output format to `json`. The configuration is automatically saved in the user's home directory (`~/.aws/` on Linux/macOS or `%USERPROFILE%\.aws\` on Windows).
 
-<div style="text-align: center; margin: 20px 0;">
-  <img src="/images/5-Workshop/5.2-Prerequisite/iam-credentials.png" alt="IAM Security Credentials" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
-</div>
+![IAM Security Credentials](/images/5-Workshop/5.2-Prerequisite/iam-credentials.png?classes=shadow)
 
 > [!NOTE]
 > The IAM Security credentials tab with the Access keys section is used to create CLI connection keys.
