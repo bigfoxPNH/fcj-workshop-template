@@ -1,5 +1,33 @@
 {{- $link := .Destination -}}
-{{- if hasPrefix $link "/" -}}
+{{- $width := "" -}}
+{{- $height := "" -}}
+{{- $class := "" -}}
+
+{{- if strings.Contains $link "?" -}}
+  {{- $parts := split $link "?" -}}
+  {{- $link = index $parts 0 -}}
+  {{- $query := index $parts 1 -}}
+  {{- $params := split $query "&" -}}
+  {{- range $params -}}
+    {{- $param := split . "=" -}}
+    {{- if eq (index $param 0) "width" -}}
+      {{- $width = index $param 1 -}}
+    {{- else if eq (index $param 0) "height" -}}
+      {{- $height = index $param 1 -}}
+    {{- else if eq (index $param 0) "classes" -}}
+      {{- $class = index $param 1 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if not (or (hasPrefix $link "http://") (or (hasPrefix $link "https://") (hasPrefix $link "//"))) -}}
+  {{- $link = strings.TrimPrefix "/" $link -}}
   {{- $link = $link | relURL -}}
 {{- end -}}
-<img src="{{ $link | safeURL }}" alt="{{ .Text | safeHTML }}" {{ with .Title }}title="{{ . | safeHTML }}"{{ end }} />
+
+<img src="{{ $link | safeURL }}"
+     alt="{{ .Text | safeHTML }}"
+     {{ with .Title }}title="{{ . | safeHTML }}"{{ end }}
+     {{ with $width }}width="{{ . | safeHTML }}"{{ end }}
+     {{ with $height }}height="{{ . | safeHTML }}"{{ end }}
+     {{ with $class }}class="{{ . | safeHTML }}"{{ end }} />
