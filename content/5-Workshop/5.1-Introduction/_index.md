@@ -10,7 +10,9 @@ pre : " <b> 5.1. </b> "
 ### Deploy infrastructure and secure connection to Amazon S3
 
 <div style="text-align: center; margin: 20px 0;">
+
   ![Overall Architecture](/images/5-Workshop/5.1-Introduction/architecture1.png?classes=shadow)
+
   <div style="font-weight: bold; margin-top: 8px; color: #555;">Figure 1. Overall architecture of the network infrastructure and AWS service integration.</div>
 </div>
 
