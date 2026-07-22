@@ -6,6 +6,12 @@ chapter : false
 pre : " <b> 5.4. </b> "
 ---
 ### Kết quả Thử nghiệm & Thực nghiệm
+
+> [!TIP]
+> 🎬 **Video Demo:** Xem trực tiếp video demo sản phẩm của dự án trên YouTube: [https://www.youtube.com/watch?v=2O4QUPTObm4](https://www.youtube.com/watch?v=2O4QUPTObm4)
+
+{{< youtube 2O4QUPTObm4 >}}
+
 Sau khi hoàn tất cấu hình cơ sở hạ tầng, tác giả đã tiến hành thử nghiệm thực tế từ đầu đến cuối (end-to-end) để đánh giá tính ổn định và chính xác của toàn bộ giải pháp:
 
 #### Thử nghiệm Luồng Đăng ký / Xác thực (AWS Cognito)

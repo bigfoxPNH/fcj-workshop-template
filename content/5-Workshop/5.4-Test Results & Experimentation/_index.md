@@ -6,6 +6,12 @@ chapter : false
 pre : " <b> 5.4. </b> "
 ---
 ### Testing & Experimental Results
+
+> [!TIP]
+> 🎬 **Demo Video:** Watch the project demonstration video directly on YouTube: [https://www.youtube.com/watch?v=2O4QUPTObm4](https://www.youtube.com/watch?v=2O4QUPTObm4)
+
+{{< youtube 2O4QUPTObm4 >}}
+
 After completing the infrastructure configuration, the author conducted practical end-to-end testing to evaluate the stability and correctness of the entire solution:
 
 #### Testing the Registration / Authentication Flow (AWS Cognito)
