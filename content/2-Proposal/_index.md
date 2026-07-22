@@ -41,7 +41,7 @@ The entire backend infrastructure is deployed on AWS within an internal Amazon V
 - **Amazon CloudWatch:** The monitoring radar that collects operational logs and scans for the keyword 'ERROR' using Metric Filters.
 - **Amazon SNS:** An automated alarm system linked with CloudWatch to send urgent alerts to Gmail.
 
-![System Architecture](/images/2-Proposal/system_architecture.png)
+![System Architecture](/images/2-Proposal/architecture1.png?classes=shadow)
 
 **Core Data Flows:**
 - **Authentication & Data Synchronization Flow:** Users enter their login information on the Flutter mobile app. The request is sent to the AWS Cognito User Pool to retrieve security tokens (ID, Access Token). The App then uses the Cognito ID as a key to verify against Firestore Security Rules to read/write the member's workout history data.
